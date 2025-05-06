@@ -1,33 +1,75 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #0099e5;
+  --primary-light: #33b1ff;
+  --primary-dark: #0077b3;
+  --secondary: #333333;
+  --accent: #0099e5;
+  --gray-light: #f3f4f6;
+  --gray: #9ca3af;
+  --gray-dark: #4b5563;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-primary-dark: var(--primary-dark);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-gray-light: var(--gray-light);
+  --color-gray: var(--gray);
+  --color-gray-dark: var(--gray-dark);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
+
+/* Usunięto ciemny motyw, aby strona zawsze używała jasnego motywu */
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer components {
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+  }
+
+  .heading-lg {
+    @apply text-3xl md:text-4xl font-bold tracking-tight;
+  }
+
+  .heading-md {
+    @apply text-2xl md:text-3xl font-bold;
+  }
+
+  .heading-sm {
+    @apply text-xl md:text-2xl font-semibold;
+  }
+
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-light text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center shadow-md;
+  }
+
+  .btn-secondary {
+    @apply bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-3 px-6 rounded-full transition-all duration-300 inline-flex items-center justify-center shadow-md;
+  }
+
+  .btn-contact {
+    @apply bg-white text-primary hover:bg-primary-light hover:text-white font-medium py-2 px-4 rounded-full transition-all duration-300 inline-flex items-center justify-center shadow-md;
   }
 }

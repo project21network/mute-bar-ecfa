@@ -1,0 +1,14 @@
+# Cloudflare Pages configuration
+name = "artbud"
+compatibility_date = "2023-12-01"
+compatibility_flags = ["nodejs_compat"]
+
+[build]
+command = "npm run build"
+output_directory = ".next"
+
+[site]
+bucket = "./.next"
+
+[env.production]
+NODE_ENV = "production"

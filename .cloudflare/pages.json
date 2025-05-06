@@ -1,0 +1,8 @@
+{
+  "buildConfig": {
+    "buildCommand": "npm run pages:build",
+    "outputDirectory": ".vercel/output/static",
+    "rootDirectory": ".",
+    "nodeVersion": "18"
+  }
+}

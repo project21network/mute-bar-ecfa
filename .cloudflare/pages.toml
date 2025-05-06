@@ -1,0 +1,10 @@
+# Cloudflare Pages configuration
+[build]
+command = "npm run build"
+output_directory = ".next"
+
+[site]
+bucket = "./.next"
+
+[env.production]
+NODE_ENV = "production"
